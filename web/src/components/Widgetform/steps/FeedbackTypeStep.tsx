@@ -22,7 +22,7 @@ export function FeedbackTypeStep({ onFeedbackTypeChanged }: FeedbackTypeStepProp
               onClick={() => onFeedbackTypeChanged(key as FeedbackType)}
               key={key}
             >
-              <img src={value.image.source} alt={value.image.alt} />
+              <img src={value.image.source} alt={value.image.alt}/>
               <span>{value.title}</span>
             </button>
           )
