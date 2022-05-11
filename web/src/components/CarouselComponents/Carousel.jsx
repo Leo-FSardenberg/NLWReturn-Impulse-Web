@@ -13,19 +13,20 @@ export function Tips(){
     const pauseSlider = () => {
       clearInterval(slideInterval);
     };
+    const removeAnimation = () => {
+      slideRef.current.classList.remove("fade-anim");};
     const handleOnNextClick = () => {
         count = (count + 1) % featuredTips.length;
         setCurrentIndex(count)
         slideRef.current.classList.add("fade-anim");
-        const removeAnimation = () => {
-          slideRef.current.classList.remove("fade-anim");
-        };;
-      };
+        slideRef.current.classList.remove("fade-anim")}
+       
       const handleOnPrevClick = () => { const productsLength = featuredTips.length;
         count = (currentIndex + productsLength - 1) % productsLength;
         setCurrentIndex(count)
         slideRef.current.classList.add("fade-anim");
-        lideRef.current.classList.remove("fade-anim");};
+        slideRef.current.classList.remove("fade-anim")
+        };
         
         const startSlider = () => {
           slideInterval = setInterval(() => {
@@ -43,7 +44,7 @@ export function Tips(){
               clearInterval(slideInterval);
           };
         }, []);
-        
+      
          
           };
 return (
@@ -53,13 +54,14 @@ return (
     </header>
 
         <div className=" flex py-8 gap-2 w-full">
-          <div className="w-full relative select-none">
-          <div ref={slideRef} className="w-full relative select-none">{featuredTips[currentIndex]} 
+          <div ref={slideRef}  className="w-full relative select-none">
+          <div className="w-full relative select-none">{featuredTips[currentIndex]} 
            </div> 
     
             <div className="relative top-1/2 transform -translate-y-1/2 flex justify-between items-start px-3">
               <button className="right-end bg-black text-white p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition"
-               onClick={handleOnPrevClick}><AiOutlineVerticalRight size={35} />
+               onClick={handleOnPrevClick}
+               ><AiOutlineVerticalRight size={35} />
                </button>
               <button className="left-end bg-black text-white p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition" 
               onClick={handleOnNextClick}><AiOutlineVerticalLeft size={35}/></button>
@@ -70,5 +72,5 @@ return (
       );
     }
 
-
+  
 
